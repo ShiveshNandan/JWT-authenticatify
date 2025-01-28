@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT-Authentication System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: #007BFF;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        header h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1, h2, h3 {
+            color: #007BFF;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            padding-left: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JWT-Authentication System</h1>
+    </header>
+    <div class="container">
+        <section>
+            <h2>Introduction</h2>
+            <p>
+                This authentication system is built with <strong>Node.js</strong> and <strong>Express.js</strong> using <strong>JWT (JSON Web Tokens)</strong> for secure user authentication and session management. It includes essential features like user registration, login, email verification, and password recovery. Emails are sent using the <strong>Gmail SMTP server</strong>, and the system is optimized for scalability, reliability, and easy deployment on <strong>Vercel servers</strong>.
+            </p>
+            <p>
+                You can create your own <strong>user database</strong> just by adding your <strong>MongoDB</strong> connection <code>URL</code> in the <code>.env</code> file. A sample <code>.env</code> file (<code>env.sample</code>) is provided for reference to help you configure the MongoDB URL and other necessary environment variables.
+            </p>
+        </section>
+        
+        <section>
+            <h2>Why Use This System?</h2>
+            <ul>
+                <li><strong>Secure:</strong> Implements JWT for stateless and secure authentication.</li>
+                <li><strong>User-friendly:</strong> Provides easy-to-use endpoints for common authentication tasks.</li>
+                <li><strong>Scalable:</strong> Designed to integrate seamlessly into modern web applications.</li>
+                <li><strong>Deployable:</strong> Simple to set up and deploy on Vercel for fast and reliable hosting.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How to Use It</h2>
+            <h3>Endpoints:</h3>
+            <ul>
+                <li>
+                    <strong>Register:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/register</code></li>
+                        <li><strong>Description:</strong> Registers a new user.</li>
+                        <li><strong>Required Data:</strong> <code>username</code>, <code>email</code>, <code>password</code> (as JSON payload).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Login:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/login</code></li>
+                        <li><strong>Description:</strong> Logs in a user and returns a JWT token.</li>
+                        <li><strong>Required Data:</strong> <code>email</code>, <code>password</code> (as JSON payload).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Verify Token:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/verify</code></li>
+                        <li><strong>Description:</strong> Verifies the JWT token to ensure the user is authenticated.</li>
+                        <li><strong>Required Data:</strong> <code>token</code> (passed as JSON payload).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Send Verification Email:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/send-verify-email</code></li>
+                        <li><strong>Description:</strong> Sends an email to verify the user's email ID.</li>
+                        <li><strong>Required Data:</strong> <code>email</code>, <code>username</code> (as JSON payload).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Verify Email:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/verifing</code></li>
+                        <li><strong>Description:</strong> Verifies the user's email by processing the secret and email ID sent in the URL parameters.</li>
+                        <li><strong>Required Data:</strong> <code>secret</code>, <code>email</code> (in URL params).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Send Recovery Email:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/send-recovery-email</code></li>
+                        <li><strong>Description:</strong> Sends an email for password recovery.</li>
+                        <li><strong>Required Data:</strong> <code>email</code> (as JSON payload).</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Recover Password:</strong>
+                    <ul>
+                        <li><strong>Endpoint:</strong> <code>/recovering</code></li>
+                        <li><strong>Description:</strong> Updates the user's password by processing the secret, email ID, and new password sent in the URL parameters.</li>
+                        <li><strong>Required Data:</strong> <code>secret</code>, <code>email</code>, <code>new-password</code> (in URL params).</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>MongoDB Integration</h2>
+            <p>
+                You can connect your own MongoDB database to store user data. The connection URL and related keys can be configured in the <code>.env</code> file. A sample <code>.env</code> file is provided as <code>env.sample</code> for your reference. You can use this file to easily name the MongoDB endpoints and other necessary keys.
+            </p>
+        </section>
+
+        <section>
+            <h2>Deployment</h2>
+            <p>
+                This system is ready for deployment on <strong>Vercel servers</strong>. Simply upload your project, configure environment variables (e.g., JWT secret, Gmail credentials), and start your server to get it running.
+            </p>
+        </section>
+    </div>
+</body>
+</html>
