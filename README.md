@@ -2,7 +2,8 @@
 
 ## Introduction
 
-This authentication system is built with **Node.js** and **Express.js** using **JWT (JSON Web Tokens)** for secure user authentication and session management. It includes essential features like user registration, login, email verification, and password recovery. Emails are sent using the **Gmail SMTP server**, and the system is optimized for scalability, reliability, and easy deployment on **Vercel servers**.
+This authentication system is built with **Node.js** and **Express.js** using **JWT (JSON Web Tokens)** for secure user authentication and session management. It includes essential features like user registration, login, email verification, and password recovery. Emails are sent using the **Gmail SMTP server**, and the system is optimized for scalability, reliability, and easy deployment on **Vercel servers**.\
+You can create your own **user database** just by adding your **MongoDB** connection `URL` in the `.env` file. A sample `.env` file (`env.sample`) is provided for reference to help you configure the MongoDB URL and other necessary environment variables.
 
 ## Why Use This System?
 
@@ -60,6 +61,10 @@ Below are the available endpoints and their functionalities:
 **Endpoint**: `/recovering`\
 **Description**: Updates the user's password by processing the secret, email ID, and new password sent in the URL parameters.\
 **Required Data**: `secret`, `email`, `new-password` (in URL params).
+
+### MongoDB Integration:
+
+You can connect your own MongoDB database to store user data. The connection URL and related keys can be configured in the .env file. A sample .env file is provided as env.sample for your reference. You can use this file to easily name the MongoDB endpoints and other necessary keys.
 
 ---
 
