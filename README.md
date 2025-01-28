@@ -12,7 +12,7 @@ You can create your own **user database** just by adding your **MongoDB** connec
 - **Scalable**: Designed to integrate seamlessly into modern web applications.
 - **Deployable**: Simple to set up and deploy on Vercel for fast and reliable hosting.
 
----
+
 
 ## How to Use It
 
@@ -66,7 +66,6 @@ Below are the available endpoints and their functionalities:
 
 You can connect your own MongoDB database to store user data. The connection URL and related keys can be configured in the .env file. A sample .env file is provided as env.sample for your reference. You can use this file to easily name the MongoDB endpoints and other necessary keys.
 
----
 
 ## Deployment
 
